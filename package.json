@@ -1,0 +1,25 @@
+{
+  "name": "nsfw-filter",
+  "version": "1.0.0",
+  "description": "Very small library that does NSFW filtering",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "prepublish": ""
+  },
+  "keywords": [
+    "nsfw filter",
+    "detection"
+  ],
+  "author": "Hassan El Mghari",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.6.3",
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "@tensorflow/tfjs": "^3.21.0",
+    "nsfwjs": "^2.4.2"
+  }
+}
