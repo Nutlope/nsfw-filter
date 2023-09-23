@@ -61,10 +61,8 @@ export default ImageUploader;
 
 ### Real world usage
 
-`nsfw-filter` is currently used in production to process hundreds of thousands of images for a popular image restoration service called <a href="https://www.restorephotos.io/">restorePhotos</a>. It helps prevent people from uploading inappropriate pictures.
+`nsfw-filter` is currently used in production to process hundreds of thousands of images for a popular image restoration service called <a href="https://www.restorephotos.io/">restorePhotos</a>. It helps prevent people from uploading inappropriate pictures. [See how it's used here.](https://github.com/Nutlope/restorePhotos/blob/main/pages/restore.tsx#L50)
 
 ## How it works
 
 This library uses both Tensorflow.js, an OSS library for machine learning models, and `nsfwjs` to predict whether a given image is NSFW (Not Safe For Work).
-
-It's currently being used in RestorePhotos, which is a popular open source projects with 250k monthly visitors. [See how it's used here.](https://github.com/Nutlope/restorePhotos/blob/main/pages/restore.tsx#L45)
