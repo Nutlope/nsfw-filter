@@ -18,11 +18,10 @@
 
 ## Usage
 
-```
+```js
 import NSFWPredictor from 'nsfw-filter';
 
-const isSafe = await NSFWPredictor.isSafe(image)
-
+const isSafe = await NSFWPredictor.isSafe(image);
 ```
 
 ## How it works
