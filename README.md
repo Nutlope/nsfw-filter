@@ -10,8 +10,6 @@
 
 ---
 
-`nsfw-filter` is currently used in production to process hundreds of thousands of images for a popular image restoration service called <a href="https://www.restorephotos.io/">restorePhotos</a>. It helps prevent people from uploading inappropriate pictures.
-
 ## Installation
 
 `npm i nsfw-filter`
@@ -60,6 +58,10 @@ function ImageUploader() {
 
 export default ImageUploader;
 ```
+
+### Real world usage
+
+`nsfw-filter` is currently used in production to process hundreds of thousands of images for a popular image restoration service called <a href="https://www.restorephotos.io/">restorePhotos</a>. It helps prevent people from uploading inappropriate pictures.
 
 ## How it works
 
