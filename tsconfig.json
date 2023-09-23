@@ -1,12 +1,11 @@
 {
   "compilerOptions": {
-    "noEmit": true,
-    "target": "ES2020",
-    "module": "Node16",
-    "strict": true,
-    "resolveJsonModule": true,
-    "isolatedModules": true,
+    "target": "es2016",
+    "module": "commonjs",
+    "outDir": "./dist",
+    "declaration": true,
     "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true
   }
 }
