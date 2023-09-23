@@ -1,5 +1,5 @@
 {
-  "name": "nsfw-filter",
+  "name": "is-nsfw",
   "version": "1.0.0",
   "description": "Very small library that does NSFW filtering",
   "main": "dist/index.js",
