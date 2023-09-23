@@ -19,9 +19,46 @@
 ## Usage
 
 ```js
-import NSFWPredictor from 'nsfw-filter';
+import NSFWFilter from 'nsfw-filter';
 
-const isSafe = await NSFWPredictor.isSafe(image);
+const isSafe = await NSFWFilter.isSafe(image);
+```
+
+### Full example
+
+```js
+import { useState } from 'react';
+import NSFWFilter from 'nsfw-filter';
+
+function ImageUploader() {
+  const [imageUrl, setImageUrl] = useState('');
+
+  const handleImageUpload = async (event) => {
+    const file = event.target.files[0];
+
+    // Check to see if the image is appropriate
+    const isSafe = await NSFWFilter.isSafe(file);
+    if (!isSafe) return 'Image is not appropriate';
+
+    // Process the image if it is safe
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setImageUrl(reader.result);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  return (
+    <div>
+      <input type="file" onChange={handleImageUpload} />
+      {imageUrl && <img src={imageUrl} alt="Uploaded" />}
+    </div>
+  );
+}
+
+export default ImageUploader;
 ```
 
 ## How it works

@@ -3,7 +3,7 @@ import * as nsfwjs from 'nsfwjs';
 
 tf.enableProdMode();
 
-class NSFWPredictor {
+class NSFWFilter {
   model: nsfwjs.NSFWJS | null = null;
   constructor() {
     this.model = null;
@@ -50,7 +50,7 @@ class NSFWPredictor {
     }
   }
 
-  async isSafeImg(file: File) {
+  async isSafe(file: File) {
     try {
       const predictions = await this.predictImg(file, 3);
       const pornPrediction = predictions.find(
@@ -73,4 +73,4 @@ class NSFWPredictor {
   }
 }
 
-export default new NSFWPredictor();
+export default new NSFWFilter();
