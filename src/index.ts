@@ -23,7 +23,7 @@ class NSFWFilter {
 
   predict(element: HTMLImageElement, guesses: number) {
     if (!this.model) {
-      throw new Error('Some error occured, please try again later!');
+      throw new Error('Some error occurred, please try again later!');
     }
     return this.model.classify(element, guesses);
   }
