@@ -63,6 +63,38 @@ export default ImageUploader;
 
 `nsfw-filter` is currently used in production to process hundreds of thousands of images for a popular image restoration service called <a href="https://www.restorephotos.io/">restorePhotos</a>. It helps prevent people from uploading inappropriate pictures. [See how it's used here.](https://github.com/Nutlope/restorePhotos/blob/main/pages/restore.tsx#L50)
 
+## Using in a browser environment with vite
+
+you can polyfill the core node modules used in nsfw-filter for browser compatibility such as 
+["path", "stream", "assert", "events", "zlib", "util", "buffer"]
+more on this: https://vitejs.dev/guide/troubleshooting.html
+install `vite-plugin-node-polyfills` with npm: https://www.npmjs.com/package/vite-plugin-node-polyfills
+in `vite.config.js`
+
+`import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react-swc";
+import { nodePolyfills } from "vite-plugin-node-polyfills";
+import path from "path";
+export default defineConfig({
+  plugins: [
+    nodePolyfills({
+      // To add only specific polyfills, add them here. If no option is passed, adds all polyfills
+      include: ["path", "stream", "assert", "events", "zlib", "util", "buffer"],
+    }),
+    react(),
+  ],
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
+      "~": path.resolve(__dirname, "./"),
+    },
+  },
+});`
+bonus: you can polyfill path to support path aliases for vite when you deploy your could on the cloud for example vercel
+so you can use `@`
+`import { cn } from "@/lib/utils"`
+disclaimer: this will dramatically increase your build size
+
 ## How it works
 
 This library uses both Tensorflow.js, an OSS library for machine learning models, and `nsfwjs` to predict whether a given image is NSFW (Not Safe For Work).
