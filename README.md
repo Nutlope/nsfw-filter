@@ -100,7 +100,7 @@ export default defineConfig({
 bonus: you can polyfill path to support path aliases for vite when you deploy your could on the cloud for example vercel.
 so you can use `@`
 `import { cn } from "@/lib/utils"`
-disclaimer: using nsfw-filter on the browser will dramatically increase your build size.
+disclaimer: using nsfw-filter on the browser will dramatically increase your bundle size.
 
 ## How it works
 
