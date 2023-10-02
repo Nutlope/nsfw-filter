@@ -68,10 +68,12 @@ export default ImageUploader;
 you can polyfill the core node modules used in nsfw-filter for browser compatibility such as 
 ["path", "stream", "assert", "events", "zlib", "util", "buffer"]
 more on this: https://vitejs.dev/guide/troubleshooting.html
+
 install `vite-plugin-node-polyfills` with npm: https://www.npmjs.com/package/vite-plugin-node-polyfills
 in `vite.config.js`
 
-`import { defineConfig } from "vite";
+```js
+import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import { nodePolyfills } from "vite-plugin-node-polyfills";
 import path from "path";
@@ -89,11 +91,12 @@ export default defineConfig({
       "~": path.resolve(__dirname, "./"),
     },
   },
-});`
-bonus: you can polyfill path to support path aliases for vite when you deploy your could on the cloud for example vercel
+});
+```
+bonus: you can polyfill path to support path aliases for vite when you deploy your could on the cloud for example vercel.
 so you can use `@`
 `import { cn } from "@/lib/utils"`
-disclaimer: this will dramatically increase your build size
+disclaimer: using nsfw-filter on the browser will dramatically increase your build size.
 
 ## How it works
 
