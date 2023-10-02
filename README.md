@@ -68,6 +68,7 @@ export default ImageUploader;
 you can polyfill the core node modules used in nsfw-filter for browser compatibility such as 
 
 ["path", "stream", "assert", "events", "zlib", "util", "buffer"]
+
 more on this: https://vitejs.dev/guide/troubleshooting.html
 
 install `vite-plugin-node-polyfills` with npm: https://www.npmjs.com/package/vite-plugin-node-polyfills
