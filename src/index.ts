@@ -59,13 +59,19 @@ class NSFWFilter {
       const hentaiPrediction = predictions.find(
         ({ className }) => className === "Hentai"
       );
-
-      if (!pornPrediction || !hentaiPrediction) {
+      if (pornPrediction === undefined && hentaiPrediction === undefined) {
         return true;
       }
-      return !(
-        pornPrediction.probability > 0.25 || hentaiPrediction.probability > 0.25
-      );
+      if (pornPrediction !== undefined && pornPrediction.probability > 0.25) {
+        return false;
+      }
+      if (
+        hentaiPrediction !== undefined &&
+        hentaiPrediction.probability > 0.25
+      ) {
+        return false;
+      }
+      return true;
     } catch (error) {
       console.error(error);
       throw error;
