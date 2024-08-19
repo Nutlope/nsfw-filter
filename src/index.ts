@@ -1,5 +1,5 @@
-import * as tf from '@tensorflow/tfjs';
-import * as nsfwjs from 'nsfwjs';
+import * as tf from "@tensorflow/tfjs";
+import * as nsfwjs from "nsfwjs";
 
 tf.enableProdMode();
 
@@ -12,9 +12,9 @@ class NSFWFilter {
   async getModel() {
     try {
       this.model = await nsfwjs.load(
-        'https://nsfw-model-1.s3.us-west-2.amazonaws.com/nsfw-predict-model/',
+        "https://nsfw-model-1.s3.us-west-2.amazonaws.com/nsfw-predict-model/",
         // @ts-ignore
-        { type: 'graph' }
+        { type: "graph" }
       );
     } catch (error) {
       console.error(error);
@@ -23,7 +23,7 @@ class NSFWFilter {
 
   predict(element: HTMLImageElement, guesses: number) {
     if (!this.model) {
-      throw new Error('Some error occurred, please try again later!');
+      throw new Error("Some error occurred, please try again later!");
     }
     return this.model.classify(element, guesses);
   }
@@ -31,7 +31,7 @@ class NSFWFilter {
   async predictImg(file: File, guesses = 5) {
     const url = URL.createObjectURL(file);
     try {
-      const img = document.createElement('img');
+      const img = document.createElement("img");
       img.width = 400;
       img.height = 400;
 
@@ -54,10 +54,10 @@ class NSFWFilter {
     try {
       const predictions = await this.predictImg(file, 3);
       const pornPrediction = predictions.find(
-        ({ className }) => className === 'Porn'
+        ({ className }) => className === "Porn"
       );
       const hentaiPrediction = predictions.find(
-        ({ className }) => className === 'Hentai'
+        ({ className }) => className === "Hentai"
       );
 
       if (!pornPrediction || !hentaiPrediction) {

@@ -1,6 +1,6 @@
 {
   "name": "nsfw-filter",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A minimal library that helps filter out NSFW images.",
   "author": "Hassan El Mghari (@nutlope)",
   "repository": "Nutlope/nsfw-filter",
