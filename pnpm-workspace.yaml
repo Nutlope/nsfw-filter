@@ -1,0 +1,6 @@
+packages:
+  - "."
+onlyBuiltDependencies:
+  - "core-js"
+allowBuilds:
+  "core-js": true

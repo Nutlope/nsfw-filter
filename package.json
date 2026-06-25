@@ -22,5 +22,6 @@
     "nsfw filter",
     "nsfw detection",
     "safe images"
-  ]
+  ],
+  "packageManager": "pnpm@11.7.0"
 }
